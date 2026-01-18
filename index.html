@@ -99,6 +99,50 @@
       background: #e0e0e0;
       margin: 25px 0;
     }
+
+    /* FAQ Styles */
+    .faq-item {
+      margin-bottom: 12px;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: bold;
+      border: 1px solid #0b5ed7;
+      border-radius: 5px;
+      background: #e7f0ff;
+      cursor: pointer;
+      outline: none;
+      transition: background 0.2s;
+      color: #0b5ed7; /* fixed text color */
+    }
+
+    .faq-question:hover {
+      background: #cfe0ff;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 10px 12px;
+      border-left: 3px solid #0b5ed7;
+      background: #f9f9f9;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 5px;
+      border-radius: 0 0 5px 5px;
+    }
+
+    a {
+      color: #0b5ed7;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -170,6 +214,112 @@
       <strong>Important:</strong> Ensure you have at least ₦50 airtime and use the phone number linked to your NIN.
     </div>
 
+    <div class="divider"></div>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <button class="btn-green" onclick="toggleFAQSection()">Show FAQ</button>
+
+    <div id="faq-section" style="display:none; margin-top:15px;">
+
+      <!-- FAQ Items -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">What is a JAMB profile code?</button>
+        <div class="faq-answer">
+          <p>A JAMB profile code is a unique 10-digit number required to create your JAMB profile, purchase your registration ePIN, and complete your UTME/DE registration.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">How do I generate my profile code?</button>
+        <div class="faq-answer">
+          <p>Enter your 11-digit NIN, select the correct SMS number, tap "Proceed" and send the pre-filled SMS from your phone. Your profile code will be sent shortly.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">Can I retrieve my profile code if I lost it?</button>
+        <div class="faq-answer">
+          <p>Use the "Retrieve Your Profile Code" button or send RESEND to 55019/66019 from the number linked to your NIN.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">How long will it take to receive my profile code?</button>
+        <div class="faq-answer">
+          <p>You usually receive your profile code instantly or within a few minutes. During peak periods, it may take up to 15–30 minutes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">What if I enter the wrong NIN?</button>
+        <div class="faq-answer">
+          <p>You must use the correct 11-digit NIN linked to your SIM. An incorrect NIN will prevent the system from generating your profile code.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">Do I need airtime to generate the profile code?</button>
+        <div class="faq-answer">
+          <p>Yes, a small fee (around ₦50) will be deducted from your airtime when sending the SMS.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">Can I generate a profile code for someone else?</button>
+        <div class="faq-answer">
+          <p>No, the number used must be linked to the NIN of the candidate. Each NIN can only generate a profile code from its registered SIM.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">Is my old profile code still valid?</button>
+        <div class="faq-answer">
+          <p>Yes. If you generated a profile code in a previous year, you can reuse it. Use the RESEND method to retrieve it if needed.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">Can I use any SIM to send the SMS?</button>
+        <div class="faq-answer">
+          <p>No. The SIM must be the one linked to your NIN. Using another number will not work.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">What should I do if I don’t receive my profile code?</button>
+        <div class="faq-answer">
+          <ul>
+            <li>Wait a few minutes (network congestion may delay delivery)</li>
+            <li>Ensure you sent from the correct number linked to your NIN</li>
+            <li>Resend the SMS if necessary</li>
+            <li>Contact support if the problem persists</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">Is there an alternative way to get the profile code online?</button>
+        <div class="faq-answer">
+          <p>No, the only official way is via SMS using the NIN-linked number. Our platform only helps pre-fill the correct message to avoid mistakes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">Why do I need a profile code before UTME/DE registration?</button>
+        <div class="faq-answer">
+          <p>It’s mandatory; without it, you cannot create your JAMB profile, buy the registration ePIN, print your exam slip, or access results.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Disclaimer -->
+    <div class="note" style="background:#f8d7da;border-left:5px solid #dc3545;">
+      <strong>Disclaimer:</strong> This website is <em>not</em> an official JAMB platform. It is only meant to assist students in generating or retrieving their JAMB profile code. Always follow official JAMB guidelines at <a href="https://www.jamb.gov.ng" target="_blank">jamb.gov.ng</a>.
+    </div>
+
     <button class="btn-green" onclick="openSupport()">Contact Support</button>
 
   </div>
@@ -195,6 +345,27 @@
 
     function openSupport() {
       window.open('https://wa.me/message/OVCVEDHU3I2PH1', '_blank');
+    }
+
+    function toggleFAQ(el) {
+      const answer = el.nextElementSibling;
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+      } else {
+        answer.style.display = "block";
+      }
+    }
+
+    function toggleFAQSection() {
+      const faqSection = document.getElementById('faq-section');
+      const btn = event.currentTarget;
+      if (faqSection.style.display === "none") {
+        faqSection.style.display = "block";
+        btn.innerText = "Hide FAQ";
+      } else {
+        faqSection.style.display = "none";
+        btn.innerText = "Show FAQ";
+      }
     }
   </script>
 
