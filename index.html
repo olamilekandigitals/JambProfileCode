@@ -1,34 +1,53 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JAMB Profile Code Generation</title>
+  <title>JAMB Profile Code Assist</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f5f7fa;
       margin: 0;
       padding: 20px;
+      color: #333;
     }
+
     .container {
-      max-width: 500px;
+      max-width: 550px;
       margin: auto;
       background: #ffffff;
       padding: 25px;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+
     h1 {
-      font-size: 22px;
+      font-size: 24px;
       text-align: center;
       color: #0b5ed7;
+      margin-bottom: 10px;
     }
+
+    h2 {
+      font-size: 18px;
+      color: #0b5ed7;
+      margin-top: 25px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
     label {
       font-weight: bold;
       margin-top: 15px;
       display: block;
     }
-    input {
+
+    input, select {
       width: 100%;
       padding: 12px;
       margin-top: 8px;
@@ -36,9 +55,10 @@
       border-radius: 5px;
       font-size: 16px;
     }
+
     button {
       width: 100%;
-      margin-top: 20px;
+      margin-top: 15px;
       padding: 14px;
       font-size: 16px;
       border: none;
@@ -47,19 +67,25 @@
       color: #fff;
       cursor: pointer;
     }
+
     button:hover {
       background: #0949a6;
     }
-    .instructions {
-      margin-top: 25px;
+
+    .btn-green {
+      background: #198754;
+    }
+
+    .btn-green:hover {
+      background: #157347;
+    }
+
+    ul {
+      padding-left: 18px;
       font-size: 14px;
       line-height: 1.6;
-      color: #333;
     }
-    .instructions h3 {
-      color: #0b5ed7;
-      margin-bottom: 8px;
-    }
+
     .note {
       background: #fff3cd;
       padding: 12px;
@@ -67,80 +93,91 @@
       margin-top: 15px;
       font-size: 13px;
     }
+
+    .divider {
+      height: 1px;
+      background: #e0e0e0;
+      margin: 25px 0;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <h1>Generate JAMB Profile Code</h1><label for="nin">Enter your 11-digit NIN</label>
-<input type="number" id="nin" placeholder="e.g. 12345678901" maxlength="11" oninput="this.value=this.value.slice(0,11)" />
 
-<label for="gateway">Select SMS Number</label>
-<select id="gateway" style="width:100%;padding:12px;margin-top:8px;border:1px solid #ccc;border-radius:5px;font-size:16px;">
-  <option value="55019" selected>55019 (Default)</option>
-  <option value="66019">66019</option>
-</select>
+    <h1>Welcome to JAMB Profile Code Assist</h1>
 
-<button onclick="sendSMS()">Proceed</button>
-<button style="background:#198754" onclick="retrieveCode()">Retrieve Your Profile Code</button>
+    <p>
+      <strong>JAMB Profile Code Assist</strong> is your easy and reliable online helper for generating
+      and retrieving your JAMB Profile Code — the essential first step in starting your
+      JAMB UTME & Direct Entry registration process.
+    </p>
 
-<div class="instructions">
-  <h3>How It Works</h3>
-  <ul>
-    <li>You will be redirected to your phone's SMS app.</li>
-    <li>The message will be pre-filled automatically.</li>
-    <li>All you need to do is tap <strong>Send</strong>.</li>
-  </ul>
+    <p>
+      Every candidate who plans to register for the Joint Admissions and Matriculation Board (JAMB)
+      UTME/DE must first obtain a unique 10-digit profile code. This code is required to create your
+      JAMB profile, purchase your registration ePIN, print your exam slip, and complete your registration.
+    </p>
 
-  <h3>Important Notes</h3>
-  <ul>
-    <li><strong>Airtime:</strong> Ensure you have at least ₦50 airtime.</li>
-    <li><strong>SIM Card:</strong> Use the phone number linked to your NIN.</li>
-    <li><strong>Old Candidates:</strong> You may reuse your old profile code.</li>
-  </ul>
+    <p>
+      Our platform is designed to make this crucial step simple, fast, and stress-free,
+      even if you’re not tech-savvy.
+    </p>
 
-  <h3>Profile Code Retrieval</h3>
-  <p>
-    To retrieve your profile code, send <strong>RESEND</strong> to <strong>55019</strong> or <strong>66019</strong> 
-    from the registered phone number previously used to generate the profile code.
-  </p>
+    <div class="divider"></div>
 
-  <h3>First-Time / Lost Code</h3>
-  <p>
-    Text <strong>NIN</strong> followed by a space and your 11-digit NIN to <strong>55019</strong> or <strong>66019</strong>.
-    <br />Example: <strong>NIN 12345678901</strong>
-  </p>
+    <h2>Generate or Retrieve Your Profile Code</h2>
 
-  <div class="note">
-    <strong>Note:</strong> A small fee (around ₦50) is usually deducted for this service.
+    <label for="nin">Enter your 11-digit NIN</label>
+    <input type="number" id="nin" placeholder="e.g. 12345678901" maxlength="11"
+      oninput="this.value=this.value.slice(0,11)" />
+
+    <label for="gateway">Select SMS Number</label>
+    <select id="gateway">
+      <option value="55019" selected>55019 (Default)</option>
+      <option value="66019">66019</option>
+    </select>
+
+    <button onclick="sendSMS()">Proceed</button>
+    <button class="btn-green" onclick="retrieveCode()">Retrieve Your Profile Code</button>
+
+    <div class="divider"></div>
+
+    <h2>What We Offer</h2>
+    <ul>
+      <li><strong>Instant SMS Assistance:</strong> Correct SMS format auto-generated to avoid mistakes.</li>
+      <li><strong>Easy Profile Code Retrieval:</strong> Quickly resend your existing code.</li>
+      <li><strong>Step-by-Step Guidance:</strong> Clear instructions to prevent errors and delays.</li>
+    </ul>
+
+    <h2>Why It Matters</h2>
+    <ul>
+      <li>Create your JAMB online profile</li>
+      <li>Purchase UTME/DE registration ePIN</li>
+      <li>Print your examination slip</li>
+      <li>Access results and admission status</li>
+    </ul>
+
+    <h2>How It Works</h2>
+    <ul>
+      <li>Enter your 11-digit NIN</li>
+      <li>Select the correct JAMB SMS number</li>
+      <li>Tap <strong>Proceed</strong> and send the pre-filled SMS</li>
+      <li>Receive your profile code within minutes</li>
+    </ul>
+
+    <div class="note">
+      <strong>Important:</strong> Ensure you have at least ₦50 airtime and use the phone number linked to your NIN.
+    </div>
+
+    <button class="btn-green" onclick="openSupport()">Contact Support</button>
+
   </div>
 
-  <h3>For Previous Year's Candidates</h3>
-  <p>
-    Your profile code remains the same. Use the <strong>RESEND</strong> method or retrieve it from the JAMB portal.
-  </p>
-
-  <p>
-    <strong>Key Reminder:</strong> The profile code is a unique 10-digit number that links all your JAMB activities.
-  </p>
-
-  <h3>When Will I Get My Profile Code?</h3>
-  <p>
-    You will usually receive your profile code instantly or within a few minutes. During peak periods, delays may occur and can take up to 15 minutes or longer. Please be patient.
-  </p>
-
-  <h3>If You Don’t Get It</h3>
-  <ul>
-    <li>Wait a few minutes due to possible network congestion.</li>
-    <li>Resend the SMS if there is no response after some time.</li>
-    <li>Ensure you used the phone number linked to your NIN.</li>
-  </ul>
-
-  <button style="margin-top:10px;background:#198754" onclick="openSupport()">Contact Support</button>
-</div>
-
-  </div>  <script>
+  <script>
     function sendSMS() {
       const nin = document.getElementById('nin').value.trim();
+      const phoneNumber = document.getElementById('gateway').value;
 
       if (!/^\d{11}$/.test(nin)) {
         alert('Please enter a valid 11-digit NIN');
@@ -148,17 +185,18 @@
       }
 
       const message = `NIN ${nin}`;
-      const phoneNumber = document.getElementById('gateway').value;
-
-      // Redirect to SMS app
       window.location.href = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
     }
+
+    function retrieveCode() {
+      const gateway = document.getElementById('gateway').value;
+      window.location.href = `sms:${gateway}?body=${encodeURIComponent('RESEND')}`;
+    }
+
     function openSupport() {
       window.open('https://wa.me/message/OVCVEDHU3I2PH1', '_blank');
     }
-    function retrieveCode() {
-      const gateway = document.getElementById('gateway').value;
-      window.location.href = 'sms:' + gateway + '?body=' + encodeURIComponent('RESEND');
-    }
-  </script></body>
+  </script>
+
+</body>
 </html>
