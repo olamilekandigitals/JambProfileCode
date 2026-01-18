@@ -1,373 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JAMB Profile Code Assist</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAMB Profile & Admission Support Center</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
+<style>
+*{box-sizing:border-box;}
+body{
+  font-family:Arial, sans-serif;
+  background:#f5f7fa;
+  margin:0;
+  padding:20px;
+}
+.container{
+  max-width:540px;
+  margin:auto;
+  background:#fff;
+  padding:25px;
+  border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+h1,h2,h3,h4{color:#0b5ed7;margin-bottom:10px;}
+h1{text-align:center;font-size:26px;}
+p{font-size:14px;line-height:1.6;color:#333;}
+label{font-weight:bold;margin-top:15px;display:block;}
+input,select{
+  width:100%;
+  padding:12px;
+  margin-top:8px;
+  border:1px solid #ccc;
+  border-radius:5px;
+  font-size:16px;
+}
+button{
+  width:100%;
+  margin-top:15px;
+  padding:14px;
+  font-size:16px;
+  border:none;
+  border-radius:5px;
+  background:#0b5ed7;
+  color:#fff;
+  cursor:pointer;
+}
+button:hover{background:#0949a6;}
+.btn-green{background:#198754;}
+.btn-green:hover{background:#146c43;}
+.instructions{margin-top:20px;}
+ul{padding-left:18px;font-size:14px;}
+.divider{height:1px;background:#e0e0e0;margin:25px 0;}
+.note{
+  padding:12px;
+  margin-top:15px;
+  font-size:13px;
+  border-radius:4px;
+}
 
-    .container {
-      max-width: 550px;
-      margin: auto;
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+/* FAQ */
+.faq-item{margin-bottom:10px;}
+.faq-question{
+  width:100%;
+  text-align:left;
+  padding:12px;
+  font-size:14px;
+  font-weight:bold;
+  border:1px solid #0b5ed7;
+  border-radius:5px;
+  background:#e7f0ff;
+  color:#0b5ed7;
+  cursor:pointer;
+}
+.faq-question:hover{background:#d0e3ff;}
+.faq-answer{
+  display:none;
+  padding:10px 12px;
+  border-left:3px solid #0b5ed7;
+  background:#f9f9f9;
+  font-size:13px;
+  margin-top:5px;
+  transition: all 0.3s ease;
+}
 
-    h1 {
-      font-size: 24px;
-      text-align: center;
-      color: #0b5ed7;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 18px;
-      color: #0b5ed7;
-      margin-top: 25px;
-    }
-
-    p {
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    label {
-      font-weight: bold;
-      margin-top: 15px;
-      display: block;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 12px;
-      margin-top: 8px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    button {
-      width: 100%;
-      margin-top: 15px;
-      padding: 14px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      background: #0b5ed7;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #0949a6;
-    }
-
-    .btn-green {
-      background: #198754;
-    }
-
-    .btn-green:hover {
-      background: #157347;
-    }
-
-    ul {
-      padding-left: 18px;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .note {
-      background: #fff3cd;
-      padding: 12px;
-      border-left: 5px solid #ffc107;
-      margin-top: 15px;
-      font-size: 13px;
-    }
-
-    .divider {
-      height: 1px;
-      background: #e0e0e0;
-      margin: 25px 0;
-    }
-
-    /* FAQ Styles */
-    .faq-item {
-      margin-bottom: 12px;
-    }
-
-    .faq-question {
-      width: 100%;
-      text-align: left;
-      padding: 12px;
-      font-size: 14px;
-      font-weight: bold;
-      border: 1px solid #0b5ed7;
-      border-radius: 5px;
-      background: #e7f0ff;
-      cursor: pointer;
-      outline: none;
-      transition: background 0.2s;
-      color: #0b5ed7; /* fixed text color */
-    }
-
-    .faq-question:hover {
-      background: #cfe0ff;
-    }
-
-    .faq-answer {
-      display: none;
-      padding: 10px 12px;
-      border-left: 3px solid #0b5ed7;
-      background: #f9f9f9;
-      font-size: 13px;
-      line-height: 1.6;
-      margin-top: 5px;
-      border-radius: 0 0 5px 5px;
-    }
-
-    a {
-      color: #0b5ed7;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+/* Privacy note */
+.privacy{margin-top:20px;font-size:12px;color:#6c757d;text-align:center;}
+</style>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
 
-    <h1>Welcome to JAMB Profile Code Assist</h1>
+<h1>JAMB Profile & Admission Support Center</h1>
 
-    <p>
-      <strong>JAMB Profile Code Assist</strong> is your easy and reliable online helper for generating
-      and retrieving your JAMB Profile Code — the essential first step in starting your
-      JAMB UTME & Direct Entry registration process.
-    </p>
+<p>
+<strong>JAMB Profile & Admission Support Center</strong> is your simple online helper for generating or retrieving
+your <strong>JAMB profile code</strong> — the first and most essential step in UTME and Direct Entry registration.
+</p>
 
-    <p>
-      Every candidate who plans to register for the Joint Admissions and Matriculation Board (JAMB)
-      UTME/DE must first obtain a unique 10-digit profile code. This code is required to create your
-      JAMB profile, purchase your registration ePIN, print your exam slip, and complete your registration.
-    </p>
+<p>
+Every candidate must have a unique <strong>10-digit profile code</strong> to create their profile, purchase registration ePIN,
+print exam slips, and access admission status.
+</p>
 
-    <p>
-      Our platform is designed to make this crucial step simple, fast, and stress-free,
-      even if you’re not tech-savvy.
-    </p>
+<p>
+Our platform makes this process <strong>fast, simple, and stress-free</strong>.
+</p>
 
-    <div class="divider"></div>
+<label>Enter your 11-digit NIN</label>
+<input type="text" id="nin" placeholder="e.g. 12345678901" maxlength="11"
+oninput="this.value=this.value.replace(/\D/g,'').slice(0,11)">
 
-    <h2>Generate or Retrieve Your Profile Code</h2>
+<label>Select SMS Number</label>
+<select id="gateway">
+  <option value="55019">55019 (Default)</option>
+  <option value="66019">66019</option>
+</select>
 
-    <label for="nin">Enter your 11-digit NIN</label>
-    <input type="number" id="nin" placeholder="e.g. 12345678901" maxlength="11"
-      oninput="this.value=this.value.slice(0,11)" />
+<button onclick="sendSMS()">Proceed</button>
+<button class="btn-green" onclick="retrieveCode()">Retrieve Your Profile Code</button>
 
-    <label for="gateway">Select SMS Number</label>
-    <select id="gateway">
-      <option value="55019" selected>55019 (Default)</option>
-      <option value="66019">66019</option>
-    </select>
+<div class="instructions">
 
-    <button onclick="sendSMS()">Proceed</button>
-    <button class="btn-green" onclick="retrieveCode()">Retrieve Your Profile Code</button>
+<h3>How It Works</h3>
+<ul>
+  <li>Enter your correct NIN</li>
+  <li>Tap Proceed to open your SMS app</li>
+  <li>Send the pre-filled message</li>
+</ul>
 
-    <div class="divider"></div>
+<h3>Important Notes</h3>
+<ul>
+  <li>Ensure at least ₦50 airtime</li>
+  <li>Use SIM linked to your NIN</li>
+  <li>Old profile codes remain valid</li>
+</ul>
 
-    <h2>What We Offer</h2>
-    <ul>
-      <li><strong>Instant SMS Assistance:</strong> Correct SMS format auto-generated to avoid mistakes.</li>
-      <li><strong>Easy Profile Code Retrieval:</strong> Quickly resend your existing code.</li>
-      <li><strong>Step-by-Step Guidance:</strong> Clear instructions to prevent errors and delays.</li>
-    </ul>
+<div class="note" style="background:#fff3cd;border-left:5px solid #ffc107">
+<strong>Note:</strong> A small SMS charge (about ₦50) applies.
+</div>
 
-    <h2>Why It Matters</h2>
-    <ul>
-      <li>Create your JAMB online profile</li>
-      <li>Purchase UTME/DE registration ePIN</li>
-      <li>Print your examination slip</li>
-      <li>Access results and admission status</li>
-    </ul>
+<div class="divider"></div>
 
-    <h2>How It Works</h2>
-    <ul>
-      <li>Enter your 11-digit NIN</li>
-      <li>Select the correct JAMB SMS number</li>
-      <li>Tap <strong>Proceed</strong> and send the pre-filled SMS</li>
-      <li>Receive your profile code within minutes</li>
-    </ul>
+<h3>Need Help Retrieving Your Profile Code?</h3>
+<div class="note" style="background:#e7f9f0;border-left:5px solid #198754">
+If you don’t have access to your Gmail or SIM card, chat with us directly.
+<br><br>
+<a href="https://wa.me/message/OVCVEDHU3I2PH1"
+target="_blank" style="color:#198754;font-weight:bold">
+Tap here to contact support on WhatsApp
+</a>
+</div>
 
-    <div class="note">
-      <strong>Important:</strong> Ensure you have at least ₦50 airtime and use the phone number linked to your NIN.
-    </div>
+<div class="divider"></div>
 
-    <div class="divider"></div>
+<h3>JAMB Regularization Assistance</h3>
 
-    <h2>Frequently Asked Questions (FAQ)</h2>
-    <button class="btn-green" onclick="toggleFAQSection()">Show FAQ</button>
+<p>
+JAMB Regularization is the process of making a student’s admission officially recognized by JAMB
+when it was granted outside the normal UTME or Direct Entry channels.
+</p>
 
-    <div id="faq-section" style="display:none; margin-top:15px;">
+<h4>Who Needs JAMB Regularization?</h4>
+<ul>
+  <li>Part-Time, NCE, OND, HND students</li>
+  <li>Students admitted without JAMB registration</li>
+  <li>Direct Entry candidates not on the JAMB matriculation list</li>
+</ul>
 
-      <!-- FAQ Items -->
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">What is a JAMB profile code?</button>
-        <div class="faq-answer">
-          <p>A JAMB profile code is a unique 10-digit number required to create your JAMB profile, purchase your registration ePIN, and complete your UTME/DE registration.</p>
-        </div>
-      </div>
+<p>
+<strong>Direct Entry Candidates:</strong> If your admission appears on your school portal but does not show on the
+<strong>JAMB matriculation list</strong>, you must do JAMB regularization.
+</p>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">How do I generate my profile code?</button>
-        <div class="faq-answer">
-          <p>Enter your 11-digit NIN, select the correct SMS number, tap "Proceed" and send the pre-filled SMS from your phone. Your profile code will be sent shortly.</p>
-        </div>
-      </div>
+<div class="note" style="background:#e7f0ff;border-left:5px solid #0b5ed7">
+<a href="https://efacility.jamb.gov.ng/CheckMatriculationList"
+target="_blank" style="color:#0b5ed7;font-weight:bold">
+Check JAMB Matriculation List
+</a>
+</div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Can I retrieve my profile code if I lost it?</button>
-        <div class="faq-answer">
-          <p>Use the "Retrieve Your Profile Code" button or send RESEND to 55019/66019 from the number linked to your NIN.</p>
-        </div>
-      </div>
+<div class="note" style="background:#fff3cd;border-left:5px solid #ffc107">
+<strong>Warning:</strong> Without JAMB regularization, Direct Entry admission, university transfer, or NYSC mobilization may be denied.
+</div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">How long will it take to receive my profile code?</button>
-        <div class="faq-answer">
-          <p>You usually receive your profile code instantly or within a few minutes. During peak periods, it may take up to 15–30 minutes.</p>
-        </div>
-      </div>
+<div class="note" style="background:#e7f9f0;border-left:5px solid #198754">
+<a href="https://wa.me/2349049871643?text=Hello%20I'm%20here%20for%20my%20JAMB%20regularization."
+target="_blank" style="color:#198754;font-weight:bold">
+Click here to book a JAMB Regularization session on WhatsApp
+</a>
+</div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">What if I enter the wrong NIN?</button>
-        <div class="faq-answer">
-          <p>You must use the correct 11-digit NIN linked to your SIM. An incorrect NIN will prevent the system from generating your profile code.</p>
-        </div>
-      </div>
+<div class="note" style="background:#e7f0ff;border-left:5px solid #0b5ed7">
+<a href="https://whatsapp.com/channel/0029VbC665dFnSzF7HzlDh2Q" target="_blank" style="color:#0b5ed7;font-weight:bold">
+Join our WhatsApp channel for updates
+</a>
+</div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Do I need airtime to generate the profile code?</button>
-        <div class="faq-answer">
-          <p>Yes, a small fee (around ₦50) will be deducted from your airtime when sending the SMS.</p>
-        </div>
-      </div>
+<div class="divider"></div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Can I generate a profile code for someone else?</button>
-        <div class="faq-answer">
-          <p>No, the number used must be linked to the NIN of the candidate. Each NIN can only generate a profile code from its registered SIM.</p>
-        </div>
-      </div>
+<h3>Frequently Asked Questions (FAQ)</h3>
+<button class="btn-green" onclick="toggleFAQSection(event)">Show FAQ</button>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Is my old profile code still valid?</button>
-        <div class="faq-answer">
-          <p>Yes. If you generated a profile code in a previous year, you can reuse it. Use the RESEND method to retrieve it if needed.</p>
-        </div>
-      </div>
+<div id="faq-section" style="display:none;margin-top:15px">
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Can I use any SIM to send the SMS?</button>
-        <div class="faq-answer">
-          <p>No. The SIM must be the one linked to your NIN. Using another number will not work.</p>
-        </div>
-      </div>
+<h4>Profile Code FAQ</h4>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">What should I do if I don’t receive my profile code?</button>
-        <div class="faq-answer">
-          <ul>
-            <li>Wait a few minutes (network congestion may delay delivery)</li>
-            <li>Ensure you sent from the correct number linked to your NIN</li>
-            <li>Resend the SMS if necessary</li>
-            <li>Contact support if the problem persists</li>
-          </ul>
-        </div>
-      </div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">What is a JAMB profile code?</button>
+<div class="faq-answer">
+<p>A unique 10-digit number required for JAMB UTME/Direct Entry registration.</p>
+</div>
+</div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Is there an alternative way to get the profile code online?</button>
-        <div class="faq-answer">
-          <p>No, the only official way is via SMS using the NIN-linked number. Our platform only helps pre-fill the correct message to avoid mistakes.</p>
-        </div>
-      </div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">Why do I need a profile code?</button>
+<div class="faq-answer">
+<p>The profile code allows you to create your JAMB profile, purchase registration ePIN, print exam slips, and access results.</p>
+</div>
+</div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Why do I need a profile code before UTME/DE registration?</button>
-        <div class="faq-answer">
-          <p>It’s mandatory; without it, you cannot create your JAMB profile, buy the registration ePIN, print your exam slip, or access results.</p>
-        </div>
-      </div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">How do I generate a new profile code?</button>
+<div class="faq-answer">
+<p>Enter your NIN, select the SMS gateway (55019 or 66019), tap Proceed, and send the pre-filled SMS from your NIN-linked phone.</p>
+</div>
+</div>
 
-    </div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">Can I retrieve my old profile code?</button>
+<div class="faq-answer">
+<p>Yes. Send <strong>RESEND</strong> to 55019 or 66019 from the phone number linked to your NIN.</p>
+</div>
+</div>
 
-    <div class="divider"></div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">How long does it take to get my profile code?</button>
+<div class="faq-answer">
+<p>Usually within a few minutes. Peak periods may cause slight delays.</p>
+</div>
+</div>
 
-    <!-- Disclaimer -->
-    <div class="note" style="background:#f8d7da;border-left:5px solid #dc3545;">
-      <strong>Disclaimer:</strong> This website is <em>not</em> an official JAMB platform. It is only meant to assist students in generating or retrieving their JAMB profile code. Always follow official JAMB guidelines at <a href="https://www.jamb.gov.ng" target="_blank">jamb.gov.ng</a>.
-    </div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">What if I don’t receive my profile code?</button>
+<div class="faq-answer">
+<ul>
+<li>Wait a few minutes — network congestion may delay delivery.</li>
+<li>Resend SMS if no response.</li>
+<li>Ensure you used the SIM linked to your NIN.</li>
+</ul>
+</div>
+</div>
 
-    <button class="btn-green" onclick="openSupport()">Contact Support</button>
+<h4>JAMB Regularization FAQ</h4>
 
-  </div>
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">What is JAMB regularization?</button>
+<div class="faq-answer">
+<p>It makes a student’s admission officially recognized by JAMB when granted outside UTME/DE channels.</p>
+</div>
+</div>
 
-  <script>
-    function sendSMS() {
-      const nin = document.getElementById('nin').value.trim();
-      const phoneNumber = document.getElementById('gateway').value;
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">Who needs JAMB regularization?</button>
+<div class="faq-answer">
+<ul>
+<li>Part-Time, NCE, OND, HND students</li>
+<li>Students admitted without JAMB registration</li>
+<li>Direct Entry candidates whose admission is not on JAMB records</li>
+</ul>
+</div>
+</div>
 
-      if (!/^\d{11}$/.test(nin)) {
-        alert('Please enter a valid 11-digit NIN');
-        return;
-      }
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">Direct Entry candidates — do I need it?</button>
+<div class="faq-answer">
+<p>If your admission appears on your school portal but not on the official <strong>JAMB matriculation list</strong>, you must do regularization.</p>
+</div>
+</div>
 
-      const message = `NIN ${nin}`;
-      window.location.href = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
-    }
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">How long does regularization take?</button>
+<div class="faq-answer">
+<p>Processing time varies but usually takes a few weeks depending on documentation accuracy.</p>
+</div>
+</div>
 
-    function retrieveCode() {
-      const gateway = document.getElementById('gateway').value;
-      window.location.href = `sms:${gateway}?body=${encodeURIComponent('RESEND')}`;
-    }
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">What happens if I don’t do JAMB regularization?</button>
+<div class="faq-answer">
+<p>You may be denied Direct Entry admission, university transfer, or NYSC mobilization.</p>
+</div>
+</div>
 
-    function openSupport() {
-      window.open('https://wa.me/message/OVCVEDHU3I2PH1', '_blank');
-    }
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">Can support services help me with regularization?</button>
+<div class="faq-answer">
+<p>Yes. Guidance is provided to avoid errors and delays.</p>
+</div>
+</div>
 
-    function toggleFAQ(el) {
-      const answer = el.nextElementSibling;
-      if (answer.style.display === "block") {
-        answer.style.display = "none";
-      } else {
-        answer.style.display = "block";
-      }
-    }
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFAQ(this)">How can I check if I am on the JAMB matriculation list?</button>
+<div class="faq-answer">
+<p>You can check on the official JAMB portal:</p>
+<p>
+<a href="https://efacility.jamb.gov.ng/CheckMatriculationList" target="_blank" style="color:#0b5ed7;font-weight:bold">
+Click here to check the JAMB matriculation list
+</a>
+</p>
+</div>
+</div>
 
-    function toggleFAQSection() {
-      const faqSection = document.getElementById('faq-section');
-      const btn = event.currentTarget;
-      if (faqSection.style.display === "none") {
-        faqSection.style.display = "block";
-        btn.innerText = "Hide FAQ";
-      } else {
-        faqSection.style.display = "none";
-        btn.innerText = "Show FAQ";
-      }
-    }
-  </script>
+</div>
+
+<div class="divider"></div>
+
+<!-- Footer Contact Support -->
+<div class="note" style="background:#e7f9f0;border-left:5px solid #198754; text-align:center; margin-top:30px;">
+  <a href="https://wa.me/2349049871643" target="_blank" style="color:#198754; font-weight:bold; text-decoration:none; font-size:16px;">
+    Contact Support on WhatsApp
+  </a>
+</div>
+
+<div class="note" style="background:#f8d7da;border-left:5px solid #dc3545; margin-top:20px;">
+<strong>Disclaimer:</strong> This website is NOT an official JAMB platform.
+It only assists students. Always verify from <a href="https://www.jamb.gov.ng" target="_blank">jamb.gov.ng</a>.
+</div>
+
+<div class="privacy">
+We do not store your NIN or profile code. All data is sent directly via your SMS app.
+</div>
+
+</div>
+
+<script>
+function sendSMS(){
+  const nin=document.getElementById('nin').value.trim();
+  if(!/^\d{11}$/.test(nin)){alert("Enter a valid 11-digit NIN");return;}
+  const phone=document.getElementById('gateway').value;
+  window.location.href=`sms:${phone}?body=${encodeURIComponent("NIN "+nin)}`;
+}
+function retrieveCode(){
+  const phone=document.getElementById('gateway').value;
+  window.location.href=`sms:${phone}?body=RESEND`;
+}
+function toggleFAQ(el){
+  const a=el.nextElementSibling;
+  a.style.display=a.style.display==="block"?"none":"block";
+}
+function toggleFAQSection(event){
+  const f=document.getElementById('faq-section');
+  if(f.style.display==="none" || f.style.display===""){
+      f.style.display="block";
+      event.target.innerText="Hide FAQ";
+  } else {
+      f.style.display="none";
+      event.target.innerText="Show FAQ";
+  }
+}
+</script>
 
 </body>
 </html>
